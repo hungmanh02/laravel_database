@@ -29,4 +29,5 @@ Route::get('/', function () {
 Route::resource('/category', CategoryControler::class); 
 Route::resource('/product',ProductController::class);
 Route::get('/filter',[ProductController::class,'filter'])->name('filter');
+Route::get('/search',[ProductController::class,'search'])->name('search');
 

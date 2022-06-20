@@ -142,5 +142,15 @@ class ProductController extends Controller
         $products=DB::table('products')->join('categories','products.category_id','=','categories.id')->where('products.status',$status)->paginate();
         return view('products.filter',['products'=>$products]);
     }
+    public function search(Request $request){
+        $search=$request->input($request->search);
+        if ($request->search != '') {
+            $searchs=DB::table('products')
+            ->join('categories','products.category_id','=','categories.id')
+            ->where('product_name', 'like', '%' . $search . '%')
+            ->orWhere('product_price', 'like', '%' . $search . '%')->paginate(5);
+        }
+        return view('products.search',['searchs'=>$searchs]);
+    }
     
 }
