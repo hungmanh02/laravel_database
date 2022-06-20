@@ -147,8 +147,10 @@ class ProductController extends Controller
         if ($request->search != '') {
             $searchs=DB::table('products')
             ->join('categories','products.category_id','=','categories.id')
-            ->where('product_name', 'like', '%' . $search . '%')
-            ->orWhere('product_price', 'like', '%' . $search . '%')->paginate(5);
+            ->where('products.product_name', 'like', '%' . $search . '%')
+            ->orWhere('products.product_price', 'like', '%' . $search . '%')
+            ->orWhere('categories.category_name', 'like', '%' . $search . '%')
+            ->paginate(5);
         }
         return view('products.search',['searchs'=>$searchs]);
     }
