@@ -29,7 +29,7 @@
               {{-- <a class="dropdown-item py-3" >
                 <p class="mb-0 font-weight-medium float-left">Select category</p>
               </a> --}}
-              <select class="form-select form-control" name="status">
+              <select class="form-control" name="status">
                 <option selected value="" class="mb-0 font-weight-medium float-left">Select status product</option>
                 <option value="pending">pending</option>
                 <option value="approve">approve</option>
