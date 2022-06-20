@@ -33,7 +33,11 @@
                   <div class="col-md-6 col-lg-12 grid-margin stretch-card">
                     <div class="card bg-primary card-rounded">
                       <div class="card-body pb-0">
-                        <h4 class="card-title card-title-dash text-white mb-4">Status Pending</h4>
+                        <a href="filter?status=pending" style="text-decoration: none">
+                          <h4 class="card-title card-title-dash text-white mb-4">
+                              Status Pending
+                            </h4>
+                          </a>
                         <div class="row">
                           <div class="col-sm-4">
                             <p class="status-summary-ight-white mb-1">Closed Value</p>
@@ -54,7 +58,9 @@
                   <div class="col-md-6 col-lg-12 grid-margin stretch-card">
                     <div class="card bg-success card-rounded">
                       <div class="card-body pb-0">
+                        <a href="filter?status=approve" style="text-decoration: none">
                         <h4 class="card-title card-title-dash text-white mb-4">Status Approve</h4>
+                        </a>
                         <div class="row">
                           <div class="col-sm-4">
                             <p class="status-summary-ight-white mb-1">Closed Value</p>
@@ -77,7 +83,9 @@
                   <div class="col-md-6 col-lg-12 grid-margin stretch-card">
                     <div class="card bg-danger card-rounded">
                       <div class="card-body pb-0">
+                        <a href="filter?status=reject" style="text-decoration: none">
                         <h4 class="card-title card-title-dash text-white mb-4">Status Reject</h4>
+                        </a>
                         <div class="row">
                           <div class="col-sm-4">
                             <p class="status-summary-ight-white mb-1">Closed Value</p>

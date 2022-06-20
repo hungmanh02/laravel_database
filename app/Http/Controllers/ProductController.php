@@ -14,7 +14,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products=DB::table('products')->join('categories','products.category_id','=','categories.id')->paginate(5);
+        $products=DB::table('products')
+        ->select('products.id','products.product_name','products.product_quantity','products.product_price','products.category_id','categories.category_name','products.product_image','products.status')
+        ->join('categories','products.category_id','=','categories.id')->paginate(5);
+        // dd($products);
         return view('products.product',['products'=>$products]);
     }
 
