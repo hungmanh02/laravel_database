@@ -27,6 +27,76 @@
               </div>
             </div>
             <!-- xxxx -->
+            <div class="row">
+              <div class="col-lg-4 d-flex flex-column">
+                <div class="row flex-grow">
+                  <div class="col-md-6 col-lg-12 grid-margin stretch-card">
+                    <div class="card bg-primary card-rounded">
+                      <div class="card-body pb-0">
+                        <h4 class="card-title card-title-dash text-white mb-4">Status Pending</h4>
+                        <div class="row">
+                          <div class="col-sm-4">
+                            <p class="status-summary-ight-white mb-1">Closed Value</p>
+                            <h2 class="text-info">{{ $pending }}</h2>
+                          </div>
+                          <div class="col-sm-8">
+                            <div class="status-summary-chart-wrapper pb-4">
+                              <canvas id="status-summary"></canvas>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div><div class="col-lg-4 d-flex flex-column">
+                <div class="row flex-grow">
+                  <div class="col-md-6 col-lg-12 grid-margin stretch-card">
+                    <div class="card bg-success card-rounded">
+                      <div class="card-body pb-0">
+                        <h4 class="card-title card-title-dash text-white mb-4">Status Approve</h4>
+                        <div class="row">
+                          <div class="col-sm-4">
+                            <p class="status-summary-ight-white mb-1">Closed Value</p>
+                            <h2 class="text-info">{{ $approve }}</h2>
+                          </div>
+                          <div class="col-sm-8">
+                            <div class="status-summary-chart-wrapper pb-4">
+                              <canvas id="status-summary"></canvas>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 d-flex flex-column">
+                <div class="row flex-grow">
+                  <div class="col-md-6 col-lg-12 grid-margin stretch-card">
+                    <div class="card bg-danger card-rounded">
+                      <div class="card-body pb-0">
+                        <h4 class="card-title card-title-dash text-white mb-4">Status Reject</h4>
+                        <div class="row">
+                          <div class="col-sm-4">
+                            <p class="status-summary-ight-white mb-1">Closed Value</p>
+                            <h2 class="text-info">{{ $reject }}</h2>
+                          </div>
+                          <div class="col-sm-8">
+                            <div class="status-summary-chart-wrapper pb-4">
+                              <canvas id="status-summary"></canvas>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
           </div>
         </div>
       </div>

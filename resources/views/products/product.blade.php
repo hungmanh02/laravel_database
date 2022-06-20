@@ -9,6 +9,20 @@
           <div class="card-body">
             <h4 class="card-title">Hoverable Table</h4>
             <div class="table-responsive">
+                @if ($errors->any())
+                    <div class="row">
+                        <ul style="list-style: none">
+                          @foreach ($errors->all() as $error)
+                            <li><p class="alert alert-danger">{{ $error }}</p></li>
+                          @endforeach
+                        </ul>
+                    </div>
+                @endif
+                @if (session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
               <table class="table table-hover">
                 <thead>
                   <tr>
@@ -30,8 +44,8 @@
                     <td>{{ $product->product_quantity }}</td>
                     <td>{{ $product->product_price }}</td>
                     <td>{{ $product->category_name }}</td>
+                    <td><img src="{{ asset('storage/products/'.$product->product_image) }}"/></td>
                     <td>{{ $product->status }}</td>
-                    <td><img src=""/>images</td>
                       <td>
                         <a href="{{ route('product.show',['product'=>$product->id] ) }}" title="View Student">
                           <button class="btn btn-info btn-sm">
@@ -44,8 +58,8 @@
                           </button>
                         </a>
                         <form method="POST" action="{{ route('product.destroy',['product'=>$product->id] ) }}" accept-charset="UTF-8" style="display:inline">
-                            {{ method_field('DELETE') }}
-                            {{ csrf_field() }}
+                            @method('DELETE')
+                            @csrf
                             <button type="submit" class="btn btn-danger btn-sm" title="Delete Contact" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
                         </form>
                       </td>

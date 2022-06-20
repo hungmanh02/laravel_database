@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryControler;
 use App\Http\Controllers\ProductController;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,7 +17,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+        $pending = DB::table('products')->where('status','pending')->count();
+        $approve = DB::table('products')->where('status','approve')->count();
+        $reject = DB::table('products')->where('status','reject')->count();
+    return view('index',['reject'=>$reject,'approve'=>$approve,'pending'=>$pending]);
+});
+Route::get('/status',function(){
+    $product=DB::table('products')->where('id',3)->get();
+    dd($product);
 });
 Route::resource('/category', CategoryControler::class); 
 Route::resource('/product',ProductController::class);

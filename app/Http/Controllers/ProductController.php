@@ -57,7 +57,7 @@ class ProductController extends Controller
             $file=$request->product_image;
             $ext=$request->product_image->extension();
             $file_name=time().'-'.'product.'.$ext;
-            $file->storeAs('products', $file_name);
+            $file->storeAs('public/products', $file_name);
         }
         $request->merge(['image'=>$file_name]);
         DB::table('products')->insert([
@@ -79,8 +79,10 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
+    {   
+        $product=DB::table('products')->join('categories','products.category_id','=','categories.id')->where('products.id',$id)->first();
+        
+        return view('products.show_product',['product'=>$product]);
     }
 
     /**
@@ -90,10 +92,11 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
+    {   
+        $categories=DB::table('categories')->get();
         $product=DB::table('products')->join('categories','products.category_id','=','categories.id')
         ->where('products.id',$id)->first();
-        return view('products.edit_product',['product'=>$product]);
+        return view('products.edit_product',['product'=>$product,'categories'=>$categories]);
     }
 
     /**
@@ -127,6 +130,8 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('products')->where('id',$id)->delete();
+        return redirect()->back()->with('success','product delete succsess');
     }
+    
 }

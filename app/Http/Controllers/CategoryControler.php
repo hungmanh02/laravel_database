@@ -58,7 +58,8 @@ class CategoryControler extends Controller
      */
     public function show($id)
     {
-        return view('categories.show_category');
+        $category=DB::table('categories')->where('id',$id)->first();
+        return view('categories.show_category',['category'=>$category]);
     }
 
     /**
@@ -96,6 +97,7 @@ class CategoryControler extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('categories')->where('id',$id)->delete();
+        return redirect()->back()->with('success','category delete success');
     }
 }

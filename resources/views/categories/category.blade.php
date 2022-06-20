@@ -10,7 +10,13 @@
             <!-- <p class="card-description">
               Add class <code>.table-hover</code>
             </p> -->
+
             <div class="table-responsive">
+              @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+              @endif
               <table class="table table-hover">
                 <thead>
                   <tr>
@@ -36,8 +42,8 @@
                           </button>
                         </a>
                         <form method="POST" action="{{ route('category.destroy',$item->id) }}" accept-charset="UTF-8" style="display:inline">
-                            {{ method_field('DELETE') }}
-                            {{ csrf_field() }}
+                            @method('DELETE')
+                            @csrf
                             <button type="submit" class="btn btn-danger btn-sm" title="Delete Contact" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
                         </form>
                       </td>
