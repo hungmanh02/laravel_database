@@ -22,38 +22,50 @@
         </li>
       </ul>
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item dropdown d-none d-lg-block">
-          <a class="nav-link dropdown-bordered dropdown-toggle dropdown-toggle-split" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false"> Select Category </a>
-          <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="messageDropdown">
-            <a class="dropdown-item py-3" >
-              <p class="mb-0 font-weight-medium float-left">Select category</p>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item preview-item">
-              <div class="preview-item-content flex-grow py-2">
-                <p class="preview-subject ellipsis font-weight-medium text-dark">Bootstrap Bundle </p>
-                <p class="fw-light small-text mb-0">This is a Bundle featuring 16 unique dashboards</p>
-              </div>
-            </a>
-            <a class="dropdown-item preview-item">
-              <div class="preview-item-content flex-grow py-2">
-                <p class="preview-subject ellipsis font-weight-medium text-dark">Angular Bundle</p>
-                <p class="fw-light small-text mb-0">Everything you’ll ever need for your Angular projects</p>
-              </div>
-            </a>
-            <a class="dropdown-item preview-item">
-              <div class="preview-item-content flex-grow py-2">
-                <p class="preview-subject ellipsis font-weight-medium text-dark">VUE Bundle</p>
-                <p class="fw-light small-text mb-0">Bundle of 6 Premium Vue Admin Dashboard</p>
-              </div>
-            </a>
-            <a class="dropdown-item preview-item">
-              <div class="preview-item-content flex-grow py-2">
-                <p class="preview-subject ellipsis font-weight-medium text-dark">React Bundle</p>
-                <p class="fw-light small-text mb-0">Bundle of 8 Premium React Admin Dashboard</p>
-              </div>
-            </a>
-          </div>
+        <li class="nav-item d-none d-lg-block">
+          <form action="{{ route('filter') }}" method="GET" style="margin: 10px auto">
+            {{-- <a class="nav-link dropdown-bordered dropdown-toggle dropdown-toggle-split" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false"> Select Category </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="messageDropdown"> --}}
+              {{-- <a class="dropdown-item py-3" >
+                <p class="mb-0 font-weight-medium float-left">Select category</p>
+              </a> --}}
+              <select class="form-select form-control" name="status">
+                <option selected value="" class="mb-0 font-weight-medium float-left">Select status product</option>
+                <option value="pending">pending</option>
+                <option value="approve">approve</option>
+                <option value="reject">reject</option>
+              </select>
+              
+              {{-- <div class="dropdown-divider"></div>
+              <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Bootstrap Bundle </p>
+                  <p class="fw-light small-text mb-0">This is a Bundle featuring 16 unique dashboards</p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Angular Bundle</p>
+                  <p class="fw-light small-text mb-0">Everything you’ll ever need for your Angular projects</p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">VUE Bundle</p>
+                  <p class="fw-light small-text mb-0">Bundle of 6 Premium Vue Admin Dashboard</p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">React Bundle</p>
+                  <p class="fw-light small-text mb-0">Bundle of 8 Premium React Admin Dashboard</p>
+                </div>
+              </a>
+            </div> --}}
+            
+            <input type="submit" class="form-control" value="filter">
+          </form>
+            
         </li>
         <li class="nav-item d-none d-lg-block">
           <div id="datepicker-popup" class="input-group date datepicker navbar-date-picker">
@@ -69,7 +81,7 @@
             <input type="search" class="form-control" placeholder="Search Here" title="Search here">
           </form>
         </li>
-        <li class="nav-item dropdown">
+        {{-- <li class="nav-item dropdown">
           <a class="nav-link count-indicator" id="notificationDropdown" href="#" data-bs-toggle="dropdown">
             <i class="icon-mail icon-lg"></i>
           </a>
@@ -106,7 +118,7 @@
               </div>
             </a>
           </div>
-        </li>
+        </li> --}}
         <li class="nav-item dropdown"> 
           <a class="nav-link count-indicator" id="countDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="icon-bell"></i>

@@ -22,9 +22,11 @@ Route::get('/', function () {
         $reject = DB::table('products')->where('status','reject')->count();
     return view('index',['reject'=>$reject,'approve'=>$approve,'pending'=>$pending]);
 });
-Route::get('/status',function(){
-    $product=DB::table('products')->where('id',3)->get();
-    dd($product);
-});
+// Route::get('/status',function(){
+//     $product=DB::table('products')->where('id',3)->get();
+//     dd($product);
+// });
 Route::resource('/category', CategoryControler::class); 
 Route::resource('/product',ProductController::class);
+Route::get('/filter',[ProductController::class,'filter'])->name('filter');
+

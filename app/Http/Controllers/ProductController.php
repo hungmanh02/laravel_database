@@ -133,5 +133,11 @@ class ProductController extends Controller
         DB::table('products')->where('id',$id)->delete();
         return redirect()->back()->with('success','product delete succsess');
     }
+    public function filter(Request $request){
+        // dd($request->status);
+        $status=$request->status;
+        $products=DB::table('products')->join('categories','products.category_id','=','categories.id')->where('products.status',$status)->paginate();
+        return view('products.filter',['products'=>$products]);
+    }
     
 }
