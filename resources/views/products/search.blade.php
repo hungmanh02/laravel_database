@@ -71,7 +71,7 @@
           </div>
         </div>
       </div>
-      {{ $searchs->links('pagination::bootstrap-4') }}
+      {{ $searchs->appends(Request::all())->links('pagination::bootstrap-4') }}
     </div>
   </div>
   <!-- content-wrapper ends -->
